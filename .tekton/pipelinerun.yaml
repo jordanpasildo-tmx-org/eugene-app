@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: eugene-app-run-
+  labels:
+    app.kubernetes.io/name: eugene-app
+    tekton.dev/pipeline: eugene-app-pipeline
+spec:
+  pipelineRef:
+    name: eugene-app-pipeline
+  params:
+    - name: git-url
+      value: "https://github.com/jordanpasildo-tmx-org/eugene-app.git"
+    - name: git-revision
+      value: "main"
+  workspaces:
+    - name: shared-workspace
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 2Gi

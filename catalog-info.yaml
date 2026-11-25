@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: eugene-app
+  description: React TypeScript frontend web application
+  annotations:
+    github.com/project-slug: jordanpasildo-tmx-org/eugene-app
+    tekton.dev/pipeline: eugene-app-pipeline
+    janus-idp.io/tekton: eugene-app
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - react
+    - typescript
+    - frontend
+    - tekton
+spec:
+  type: website
+  lifecycle: experimental
+  owner: group:default/jordanpasildo-tmx-org
